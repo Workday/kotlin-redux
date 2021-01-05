@@ -1,5 +1,7 @@
 # kotlin-redux
 
+[![Build Status](https://travis-ci.org/Workday/kotlin-redux.svg?branch=main)](https://travis-ci.org/Workday/kotlin-redux)
+
 This library is a simplified implementation of Redux written in Kotlin for Android. 
 
 Redux is an architecture that was originally created in JavaScript: https://redux.js.org/. It follows a strict, unidirectional flow of data, and makes state predictable. It achieves this by ensuring the state is the single source of truth and immutable, and that changes to the state are done through pure functions.
