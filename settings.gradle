@@ -1,0 +1,3 @@
+include ':redux'
+include ':sample'
+rootProject.name = "Kotlin Redux"
