@@ -1,6 +1,6 @@
 # kotlin-redux
 
-[![Build Status](https://travis-ci.org/Workday/kotlin-redux.svg?branch=main)](https://travis-ci.org/Workday/kotlin-redux)
+[![Build Status](https://api.travis-ci.com/Workday/kotlin-redux.svg?branch=main)](https://travis-ci.com/github/Workday/kotlin-redux)
 
 This library is a simplified implementation of Redux written in Kotlin for Android. 
 
