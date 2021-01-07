@@ -19,7 +19,6 @@ repositories {
 
 dependencies {
     compile "com.workday:kotlin-redux:$kotlin_redux_version"
-    compile "com.workday:kotlin-redux:$kotlin_redux_version"
 }
 ```
 
