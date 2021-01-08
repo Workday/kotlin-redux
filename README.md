@@ -1,6 +1,8 @@
 # kotlin-redux
 
-[![Build Status](https://travis-ci.com/Workday/kotlin-redux.svg?token=QBXyzM3XGY5u6T692bcA&branch=main)](https://travis-ci.com/github/Workday/kotlin-redux)
+[![Build Status](https://travis-ci.com/Workday/kotlin-redux.svg?branch=main)](https://travis-ci.com/github/Workday/kotlin-redux)
+
+[![Maven](https://maven-badges.herokuapp.com/maven-central/com.workday/kotlin-redux/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.workday/kotlin-redux)
 
 This library is a simplified implementation of Redux written in Kotlin for Android. 
 
@@ -22,14 +24,31 @@ dependencies {
 }
 ```
 
-## How To
-
-To create a store:
+## Usage
+To create a state:
 
 ```
-val store = SingleThreadedStore<MainState, CounterAction>(
-  state = MainState(...),
-  reducer = MainReducer(),
+data class ExampleState(
+    ...
+) : State
+```
+
+You can have many reducers, but it is best practice to combine them into one. To create a reducer:
+
+```
+class ExampleReducer : Reducer<State, Action> {
+    override fun invoke(currentState: State, newAction: Action): MainState {
+        return currentState.copy(...)
+    }
+}
+```
+
+To create a single threaded store, use the following initialization but with your initial state, reducer, and middleware(s):
+
+```
+val store = SingleThreadedStore<MainState, Action>(
+  state = ExampleState(...),
+  reducer = ExampleReducer(),
   middleware = listOf(ExampleMiddleware(), AnotherMiddleware())
 )
 ```
@@ -48,7 +67,7 @@ Ensure that you also unsubscribe from the store by calling:
 storeUnsubscriber.invoke()
 ```
 
-Avoid dispatching multiple times in a row as per Redux best practices. To dispatch actions:
+Avoid dispatching multiple times in a row as per Redux best practices. To dispatch actions, use the following with an action that implements the `Action` interface:
 
 ```
 dispatch(ExampleAction)
